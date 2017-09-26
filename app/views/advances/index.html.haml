@@ -1,0 +1,29 @@
+%h1 Mostrando avances
+
+%table
+  %thead
+    %tr
+      %th Nombre
+      %th Descripción
+      %th Plan operativo
+      %th
+      %th
+      %th
+
+  %tbody
+    - @advances.each do |advance|
+      %tr
+        %td= advance.name
+        %td= advance.description
+        %td= advance.operative_plan.name
+        %td= link_to 'Mostrar', advance
+        - if current_user.admin?
+          %td= link_to 'Editar', edit_advance_path(advance)
+          %td= link_to 'Eliminar', advance, method: :delete, data: { confirm: '¿Estás seguro?' }
+
+%br
+
+- if current_user.admin?
+  = link_to 'Nuevo avance', new_advance_path
+  \|
+= link_to 'Volver a los planes operativos', operative_plans_path

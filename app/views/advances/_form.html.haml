@@ -1,0 +1,12 @@
+= form_for @advance do |f|
+  .field
+    = f.label :name, 'Nombre'
+    = f.text_field :name
+  .field
+    = f.label :description, 'Descripción'
+    = f.text_area :description
+  .field
+    = f.label :operative_plan_id, 'Plan operativo'
+    = f.select(:operative_plan_id, plans_for_select)
+  .actions
+    = f.submit 'Guardar'

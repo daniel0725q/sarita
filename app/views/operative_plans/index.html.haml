@@ -1,0 +1,25 @@
+%h1 Mostrando planes operativos
+
+%table
+  %thead
+    %tr
+      %th Nombre
+      %th Descripción
+      %th
+      %th
+      %th
+
+  %tbody
+    - @operative_plans.each do |operative_plan|
+      %tr
+        %td= operative_plan.name
+        %td= operative_plan.description
+        %td= link_to 'Mostrar', operative_plan
+        - if current_user.admin?
+          %td= link_to 'Editar', edit_operative_plan_path(operative_plan)
+          %td= link_to 'Eliminar', operative_plan, method: :delete, data: { confirm: '¿Estás seguro?' }
+
+%br
+
+- if current_user.admin?
+  = link_to 'Nuevo plan operativo', new_operative_plan_path

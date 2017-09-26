@@ -1,0 +1,9 @@
+= form_for @operative_plan do |f|
+  .field
+    = f.label :name, 'Nombre'
+    = f.text_field :name
+  .field
+    = f.label :description, 'Descripción'
+    = f.text_area :description
+  .actions
+    = f.submit 'Guardar'
