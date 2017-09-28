@@ -17,6 +17,7 @@
             %li=link_to "Planes operativos", operative_plans_path
             - if current_user.admin?
               %li=link_to "Avances", advances_path
+            %li=link_to "Mi cuenta", edit_user_registration_path
             %li=link_to "Cerrar sesión", destroy_user_session_path, method: :delete
           - else
             %li=link_to "Iniciar sesión", new_user_session_path
