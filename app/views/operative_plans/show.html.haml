@@ -3,11 +3,13 @@
   = @operative_plan.name
 %p
   %b Descripción:
+  %br
   = @operative_plan.description
 %hr
 - @operative_plan.advances.each do |op|
   %b= op.name
-  %p= op.description
+  %br
+  = raw op.description
   %hr
 
 = link_to 'Editar', edit_operative_plan_path(@operative_plan)

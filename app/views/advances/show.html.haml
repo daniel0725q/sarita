@@ -2,11 +2,13 @@
   %b Nombre:
   = @advance.name
 %p
-  %b Descripción:
-  = @advance.description
-%p
   %b Plan operativo:
   = @advance.operative_plan.name
+%p
+  %b Descripción:
+  %br
+  = raw @advance.description
+
 
 = link_to 'Editar', edit_advance_path(@advance)
 \|
