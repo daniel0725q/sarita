@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :payments
   resources :advances
   resources :operative_plans
   devise_for :users

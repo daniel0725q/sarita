@@ -15,6 +15,7 @@
           %li=link_to "Inicio", root_path
           - if user_signed_in?
             %li=link_to "Planes operativos", operative_plans_path
+            %li=link_to "Pagos", payments_path
             - if current_user.admin?
               %li=link_to "Avances", advances_path
             %li=link_to "Mi cuenta", edit_user_registration_path

@@ -1,0 +1,27 @@
+%h1 Mostrando pagos
+
+- if current_user.admin?
+  = link_to 'Nuevo pago', new_payment_path
+
+%table
+  %thead
+    %tr
+      %th Nombre
+      %th Descripción
+      %th Documentos de soporte
+      %th
+      %th
+      %th
+
+  %tbody
+    - @payments.each do |payment|
+      %tr
+        %td= payment.name
+        %td= payment.description
+        %td= payment.info
+        %td= link_to 'Mostrar', payment
+        - if current_user.admin?
+          %td= link_to 'Editar', edit_payment_path(payment)
+          %td= link_to 'Eliminar', payment, method: :delete, data: { confirm: '¿Estás seguro?' }
+
+%br

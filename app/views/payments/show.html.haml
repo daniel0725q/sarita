@@ -1,0 +1,14 @@
+%p
+  %b Nombre:
+  = @payment.name
+%p
+  %b Descripción:
+  = @payment.description
+%p
+  %b Documentos de soporte:
+  %br
+  = raw @payment.info
+
+= link_to 'Editar', edit_payment_path(@payment)
+\|
+= link_to 'Atrás', payments_path
